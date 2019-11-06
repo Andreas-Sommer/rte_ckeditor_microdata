@@ -27,7 +27,7 @@
     }
   },
   "replace": {
-    "rte_ckeditor_microdata": "self.version"
+    "belsignum/rte_ckeditor_microdata": "self.version"
   }
 
 }
