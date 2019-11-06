@@ -16,7 +16,8 @@
     "Microdata",
     "Structured data",
     "SEO",
-    "schema.org"
+    "schema.org",
+    "CKEditor"
   ],
   "require": {
     "typo3/cms-core": "^8.7 || ^9.5"
