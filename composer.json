@@ -1,0 +1,33 @@
+{
+  "name": "belsignum/rte_ckeditor_microdata",
+  "type": "typo3-cms-extension",
+  "description": "FAQ Microdata support in CKEditor for Typo3",
+  "homepage": "https://www.belsignum.com",
+  "license": ["GPL-2.0+"],
+  "authors": [
+    {
+      "name": "Andreas Sommer",
+      "role": "Developer"
+    }
+  ],
+  "keywords": [
+    "TYPO3 CMS",
+    "TYPO3 extension",
+    "Microdata",
+    "Structured data",
+    "SEO",
+    "schema.org"
+  ],
+  "require": {
+    "typo3/cms-core": "^8.7 || ^9.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Belsignum\\RteCKEditorMicrodata\\": "Classes/"
+    }
+  },
+  "replace": {
+    "rte_ckeditor_microdata": "self.version"
+  }
+
+}

@@ -1,0 +1,17 @@
+# Register image plugin for ckeditor
+editor:
+  externalPlugins:
+    microdata:
+      resource: "EXT:rte_ckeditor_microdata/Resources/Public/JavaScript/Plugins/microdata/plugin.js"
+
+  config:
+    # allow div and headers width attributes
+    extraAllowedContent: >
+      div[itemprop, itemscope, itemtype](*);
+      h1[itemprop];
+      h2[itemprop];
+      h3[itemprop];
+      h4[itemprop];
+      h5[itemprop];
+      h6[itemprop];
+

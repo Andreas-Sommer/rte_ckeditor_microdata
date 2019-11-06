@@ -1,0 +1,15 @@
+config.htmlTag_stdWrap.cObject = COA
+config.htmlTag_stdWrap.cObject {
+	10 = TEXT
+	10.value = <html lang="{$config.language}"
+
+	20 = TEXT
+	20 {
+		field = tx_rteckeditormicrodata_webpagetype
+		required = 1
+		noTrimWrap = | itemscope itemtype="https://schema.org/|"|
+	}
+
+	30 = TEXT
+	30.value = >
+}
