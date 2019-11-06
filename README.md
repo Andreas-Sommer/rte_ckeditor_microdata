@@ -48,26 +48,25 @@ Add issues or explore the project on [github](https://github.com/belsignum/rte_c
 
 5. Mod existing RTE config
 
-	```yaml
-		# EXT:my_ext/Configuration/RTE/Default.yaml
-		# or:
-		# fileadmin/Template/Configuration/RTE/Default.yaml
-		imports:
-		  # Import the microdata plugin configuration
-		- { resource: "EXT:rte_ckeditor_microdata/Configuration/RTE/Plugin.yaml" }
+    ```yaml
+    # EXT:my_ext/Configuration/RTE/Default.yaml
+    # or:
+    # fileadmin/Template/Configuration/RTE/Default.yaml
+    imports:
+      # Import the microdata plugin configuration
+      - { resource: "EXT:rte_ckeditor_microdata/Configuration/RTE/Plugin.yaml" }
+    editor:
+      config:
+      # allow div and headers width attributes
+      extraAllowedContent: >
+        div[itemprop, itemscope, itemtype](*);
+        h1[itemprop];
+        h2[itemprop];
+        h3[itemprop];
+        h4[itemprop];
+        h5[itemprop];
+        h6[itemprop];
 
-		editor:
-		  config:
-			# allow div and headers width attributes
-			extraAllowedContent: >
-			  div[itemprop, itemscope, itemtype](*);
-			  h1[itemprop];
-			  h2[itemprop];
-			  h3[itemprop];
-			  h4[itemprop];
-			  h5[itemprop];
-			  h6[itemprop];
-	
 ## Usage
 
 1. Edit page properties goto Metadata tab and select type of web page
