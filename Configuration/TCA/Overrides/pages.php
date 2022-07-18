@@ -1,4 +1,7 @@
 <?php
+
+use Belsignum\RteCKEditorMicrodata\Provider\WebPageTypeProvider;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 call_user_func(function () {
 	$rteCKeditorMicrodataFields = [
 		'tx_rteckeditormicrodata_webpagetype' => [
@@ -7,7 +10,7 @@ call_user_func(function () {
 			'config' => [
 				'type' => 'select',
 				'renderType' => 'selectSingle',
-				'items' => \Belsignum\RteCKEditorMicrodata\Provider\WebPageTypeProvider::getTypesForTcaSelect(),
+				'items' => WebPageTypeProvider::getTypesForTcaSelect(),
 				'size' => 1,
 				'maxitems' => 1,
 				'behaviour' => [
@@ -17,8 +20,8 @@ call_user_func(function () {
 		],
 	];
 
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('pages', $rteCKeditorMicrodataFields);
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+	ExtensionManagementUtility::addTCAcolumns('pages', $rteCKeditorMicrodataFields);
+	ExtensionManagementUtility::addFieldsToPalette(
 		'pages',
 		'metatags',
 		'tx_rteckeditormicrodata_webpagetype'

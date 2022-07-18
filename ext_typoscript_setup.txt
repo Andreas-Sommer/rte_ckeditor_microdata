@@ -1,15 +1,37 @@
 config.htmlTag_stdWrap.cObject = COA
 config.htmlTag_stdWrap.cObject {
 	10 = TEXT
-	10.value = <html lang="{$config.language}"
+	10.value = <html
 
 	20 = TEXT
-	20 {
-		field = tx_rteckeditormicrodata_webpagetype
-		required = 1
-		noTrimWrap = | itemscope itemtype="https://schema.org/|"|
-	}
+	20.data = siteLanguage:direction
+	20.noTrimWrap = | dir="|"|
+	20.required = 1
 
 	30 = TEXT
-	30.value = >
+	30 {
+		data = siteLanguage:locale
+		noTrimWrap = | lang="|"|
+		stdWrap.replacement {
+			10 {
+				search = _
+				replace = -
+			}
+
+			20 {
+				search = .UTF-8
+				replace =
+			}
+		}
+	}
+
+	40 = TEXT
+	40 {
+		field = tx_rteckeditormicrodata_webpagetype
+		noTrimWrap = | itemscope itemtype="https://schema.org/|"|
+		required = 1
+	}
+
+	50 = TEXT
+	50.value = >
 }
