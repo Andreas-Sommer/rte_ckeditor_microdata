@@ -4,7 +4,7 @@
   "description": "FAQ Microdata support in CKEditor for Typo3",
   "homepage": "https://www.belsignum.com",
   "license": ["GPL-2.0+"],
-  "version": "10.0.0",
+  "version": "10.0.1",
   "authors": [
     {
       "name": "Andreas Sommer",
@@ -30,6 +30,11 @@
   },
   "replace": {
     "belsignum/rte_ckeditor_microdata": "self.version"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "rte_ckeditor_microdata"
+    }
   }
 
 }
