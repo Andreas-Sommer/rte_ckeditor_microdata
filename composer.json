@@ -26,9 +26,6 @@
     "psr-4": {
       "Belsignum\\RteCKEditorMicrodata\\": "Classes/"
     }
-  },
-  "replace": {
-    "belsignum/rte_ckeditor_microdata": "self.version"
   }
 
 }
