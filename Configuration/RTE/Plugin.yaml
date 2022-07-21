@@ -14,4 +14,4 @@ editor:
       h4[itemprop];
       h5[itemprop];
       h6[itemprop];
-
+      span[data-cke-bookmark](*);

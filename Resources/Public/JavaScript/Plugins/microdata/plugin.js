@@ -8,7 +8,7 @@
 				command: 'microdata',
 				toolbar: 'insert'
 			});
-			CKEDITOR.dialog.add('microdataDialog', this.path + 'dialogs/microdata.js');
+			CKEDITOR.dialog.add('microdataDialog', this.path + 'dialogs/microdata.min.js');
 		}
 	});
 })(TYPO3.jQuery);

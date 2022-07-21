@@ -1,6 +1,13 @@
-CKEDITOR.dialog.add('microdataDialog', function(editor) {
-	return {
+function cleanHtml(html) {
+	// remove paragraph and bookmark
+	html = html.replaceAll(/<p>|<\/p>|<span\sdata-cke-bookmark="1"\sstyle="display:\snone;">&nbsp;<\/span>/g, '');
+	return html;
+}
 
+CKEDITOR.dialog.add('microdataDialog', function(editor) {
+	var $parent, bookmarkElement;
+
+	return {
 		// Basic properties of the dialog window: title, minimum size.
 		title: 'Microdata Properties',
 		minWidth: 400,
@@ -35,13 +42,38 @@ CKEDITOR.dialog.add('microdataDialog', function(editor) {
 			}
 		],
 
+		// This method is invoked once a user clicks the MICRODATA button, opening the dialog.
+		onShow: function () {
+			// store dialog
+			var dialog = this;
+			// get selection
+			var selection = editor.getSelection();
+			// create Bookmark
+			var bookmark = selection.createBookmarks();
+			// store bookmark element
+			bookmarkElement = bookmark[0].startNode.$;
+			// store whole FAQ entity
+			$parent = $(bookmarkElement).parents('div[itemprop="mainEntity"]');
+			// get header content
+			var question = cleanHtml($parent.find(':header[itemprop="name"]').html());
+			// get answer content
+			var answer = cleanHtml($parent.find('div[itemprop="text"]').html());
+
+			// provide contents in dialog
+			dialog.setValueOf('tab-basic', 'question', question);
+			dialog.setValueOf('tab-basic', 'answer', answer);
+		},
+
+		// This method is invoked once a user clicks the CANCEL button, aborting the dialog.
+		onCancel: function () {
+			// remove bookmark
+			$(bookmarkElement).remove();
+		},
+
 		// This method is invoked once a user clicks the OK button, confirming the dialog.
 		onOk: function() {
-
-			// The context of this function is the dialog object itself.
-			// http://docs.ckeditor.com/ckeditor4/docs/#!/api/CKEDITOR.dialog
+			// store dialog
 			var dialog = this;
-
 			var html = '<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">\n' +
 				'    <h3 itemprop="name">' + dialog.getValueOf('tab-basic', 'question') + '</h3>\n' +
 				'    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">\n' +
@@ -51,8 +83,11 @@ CKEDITOR.dialog.add('microdataDialog', function(editor) {
 				'    </div>\n' +
 				'  </div>';
 
+			// remove parent html from rte dom
+			$parent.remove();
 			// Finally, insert the element into the editor at the caret position.
 			editor.insertHtml(html);
 		}
+
 	};
 });
