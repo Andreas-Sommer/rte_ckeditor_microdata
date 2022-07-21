@@ -4,7 +4,7 @@
   "description": "FAQ Microdata support in CKEditor for Typo3",
   "homepage": "https://www.belsignum.com",
   "license": ["GPL-2.0+"],
-  "version": "10.0.2",
+  "version": "10.1.0",
   "authors": [
     {
       "name": "Andreas Sommer",
